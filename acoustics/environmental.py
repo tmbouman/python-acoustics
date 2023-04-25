@@ -5,22 +5,22 @@ def time_to_minutes(time_str):
    hours, minutes = map(int, time_str.split(':'))
    return 60 * hours + minutes
 
-def LDN(night_gauge_str, night_end_str, time_str, dBinput, penalty):
+def LDN(time_str, dBinput):
     """
     ----------
     INPUT
-    night_gauge_str: The time in the PM (in 24-hour time ex. 17:00) when the nightime penalty comes into effect
-    night_end_str: The time in the AM (in 24-hour time ex. 9:00) when the nighttime penalty is removed
     time_str: The vector with variables (in 24-hour time) coordinating to each dB reading
     dBinput: The vector of dB readings which coordinate with the time variables
-    penalty: The associated dB penalty of noises in the nighttime
-    example of a proper input is LDN('20:00','7:00',['6:00','8:00','12:00','18:00','24:00'],[42,54,52,59,50],10)
+    example of a proper input is LDN(['6:00','8:00','12:00','18:00','24:00'],[42,54,52,59,50])
     Time is split at each input NOT between two inputs
     -------
     OUTPUT
     The output should be the sum of the LDN
     """
     import math 
+    penalty=10
+    night_gauge_str='7:00'
+    night_end_str='22:00'
     night_gauge = time_to_minutes(night_gauge_str)
     night_end = time_to_minutes(night_end_str)
     time = []
