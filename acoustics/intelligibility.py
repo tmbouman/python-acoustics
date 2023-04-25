@@ -1,4 +1,4 @@
-def SIL(speechlevels,background):
+def SIL(speechlevels):
     """
     ----------
     INPUT
@@ -17,7 +17,7 @@ def SIL(speechlevels,background):
             sils.append(sil)
         # Calculate the average SIL4 value across the frequency bands
         sil4 = sum(sils) / len(sils)  
-        return sil4-background
+        return sil4
     #SIL3 Value Calculator
     elif len(numspeech)==3:
     # Calculate the SIL values for each frequency band
@@ -27,7 +27,7 @@ def SIL(speechlevels,background):
             sils.append(sil)
         # Calculate the average SIL3 value across the frequency bands
         sil3 = sum(sils) / len(sils)    
-        return sil3-background
+        return sil3
     elif len(numspeech)>4:
         print("Too many inputted Values")
     elif len(numspeech)<3:
